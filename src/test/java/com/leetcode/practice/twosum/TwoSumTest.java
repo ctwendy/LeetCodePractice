@@ -1,9 +1,15 @@
 package com.leetcode.practice.twosum;
 
+import com.google.common.collect.Lists;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class TwoSumTest {
 
@@ -16,8 +22,8 @@ public class TwoSumTest {
 
         int[] answer = twoSum.twoSum(nums, target);
 
-        int[] expected = new int[]{0, 1};
-        assertThat(answer, equalTo(expected));
+        List<Integer> answerList = getAnswerList(answer);
+        assertThat(answerList, containsInAnyOrder(0, 1));
     }
 
     @Test
@@ -27,8 +33,8 @@ public class TwoSumTest {
 
         int[] answer = twoSum.twoSum(nums, target);
 
-        int[] expected = new int[]{};
-        assertThat(answer, equalTo(expected));
+        List<Integer> answerList = getAnswerList(answer);
+        assertTrue(answerList.isEmpty());
     }
 
     @Test
@@ -38,8 +44,8 @@ public class TwoSumTest {
 
         int[] answer = twoSum.twoSum(nums, target);
 
-        int[] expected = new int[]{1, 2};
-        assertThat(answer, equalTo(expected));
+        List<Integer> answerList = getAnswerList(answer);
+        assertThat(answerList, containsInAnyOrder(1, 2));
     }
 
     @Test
@@ -49,8 +55,8 @@ public class TwoSumTest {
 
         int[] answer = twoSum.twoSum(nums, target);
 
-        int[] expected = new int[]{2, 3};
-        assertThat(answer, equalTo(expected));
+        List<Integer> answerList = getAnswerList(answer);
+        assertThat(answerList, containsInAnyOrder(2, 3));
     }
 
     @Test
@@ -60,8 +66,15 @@ public class TwoSumTest {
 
         int[] answer = twoSum.twoSum(nums, target);
 
-        int[] expected = new int[]{1, 2};
-        assertThat(answer, equalTo(expected));
+        List<Integer> answerList = getAnswerList(answer);
+        assertThat(answerList, containsInAnyOrder(1, 2));
+    }
 
+    private List<Integer> getAnswerList(int[] answer) {
+        List<Integer> answerList = Lists.newArrayList();
+        for (int index = 0; index < answer.length; index++) {
+            answerList.add(answer[index]);
+        }
+        return answerList;
     }
 }

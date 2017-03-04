@@ -9,14 +9,12 @@ public class TwoSum {
 
         for (int index = 0; index < nums.length; index++) {
             numPositionMap.put(nums[index], index);
-        }
-
-        for (int index = 0; index < nums.length; index++) {
             int stillNedd = target - nums[index];
             if (numPositionMap.containsKey(stillNedd) && numPositionMap.get(stillNedd) != index) {
                 return new int[]{index, numPositionMap.get(stillNedd)};
             }
         }
+
         return new int[]{};
     }
 }
