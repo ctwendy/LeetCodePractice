@@ -36,13 +36,22 @@ public class AddTwoNumbersTest {
         assertTwoListNode(answer, expected);
     }
 
+    @Test
+    public void addTwoNumbersInLinkedListThatNeedToCarryOver() throws Exception {
+        ListNode numOne = createLinkedList(5);
+        ListNode numTwo = createLinkedList(5);
+        ListNode answer = addTwoNumbers.addTwoNubmers(numOne, numTwo);
+        ListNode expected = createLinkedList(0, 1);
+        assertTwoListNode(answer, expected);
+    }
+
     private void assertTwoListNode(ListNode answer, ListNode expected) {
         while (answer != null || expected != null) {
             assertNotNull(answer);
             assertNotNull(expected);
-            assertEquals(answer.getVal(), expected.getVal());
-            answer = answer.getNext();
-            expected = expected.getNext();
+            assertEquals(answer.val, expected.val);
+            answer = answer.next;
+            expected = expected.next;
         }
     }
 
@@ -56,7 +65,7 @@ public class AddTwoNumbersTest {
             }
 
             if (parent != null) {
-                parent.setNext(listNode);
+                parent.next = listNode;
             }
             parent = listNode;
         }
