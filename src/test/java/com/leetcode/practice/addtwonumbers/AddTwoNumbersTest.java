@@ -18,6 +18,24 @@ public class AddTwoNumbersTest {
         assertTwoListNode(answer, expected);
     }
 
+    @Test
+    public void addTwoNumbersInLinkedListWithDifferentLength() throws Exception {
+        ListNode numOne = createLinkedList(0, 2, 4, 3);
+        ListNode numTwo = createLinkedList(5, 6, 4);
+        ListNode answer = addTwoNumbers.addTwoNubmers(numOne, numTwo);
+        ListNode expected = createLinkedList(5, 8, 8, 3);
+        assertTwoListNode(answer, expected);
+    }
+
+    @Test
+    public void addTwoNumbersInLinkedListWithFarMoreDifferentLength() throws Exception {
+        ListNode numOne = createLinkedList(0, 2, 4, 3);
+        ListNode numTwo = createLinkedList(5, 6);
+        ListNode answer = addTwoNumbers.addTwoNubmers(numOne, numTwo);
+        ListNode expected = createLinkedList(5, 8, 4, 3);
+        assertTwoListNode(answer, expected);
+    }
+
     private void assertTwoListNode(ListNode answer, ListNode expected) {
         while (answer != null || expected != null) {
             assertNotNull(answer);
