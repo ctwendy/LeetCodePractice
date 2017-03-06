@@ -15,6 +15,44 @@ create table LeetCode.Address
     Primary key (AddressId)
 );
 
+insert into LeetCode.Person
+(
+	PersonId,
+    FirstName,
+    LastName
+) values
+(
+	1,
+    'Wendy',
+    'Chen'
+);
+
+insert into LeetCode.Person
+(
+	PersonId,
+    FirstName,
+    LastName
+) values
+(
+	2,
+    'Dave',
+    'Chen'
+);
+
+insert into LeetCode.Address
+(
+	AddressId,
+    PersonId,
+    City,
+    State
+) values
+(
+	1,
+    2,
+    'SF',
+    'CA'
+);
+
 
 
 
